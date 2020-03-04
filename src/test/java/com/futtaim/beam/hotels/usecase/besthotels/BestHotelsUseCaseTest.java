@@ -30,7 +30,7 @@ class BestHotelsUseCaseTest {
         Hotel hotel = hotels.get(0);
         assertEquals(hotel.getHotelName(), "Rixos");
         assertEquals(hotel.getProvider(), "BestHotels");
-        assertEquals(hotel.getFare(), BigDecimal.TEN);
+        assertEquals(hotel.getFare(), new BigDecimal("10.00"));
         assertEquals(hotel.getAmenities().get(0), "Pool");
         assertEquals(hotel.getHotelRate(), 5);
     }
