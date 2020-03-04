@@ -1,12 +1,15 @@
 package com.futtaim.beam.hotels.provider;
 
+import com.futtaim.beam.hotels.controller.dto.Hotel;
+import com.futtaim.beam.hotels.domain.EnquiryRequest;
 import com.futtaim.beam.hotels.usecase.UseCase;
-import com.futtaim.beam.hotels.usecase.domain.EnquiryRequest;
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * this factory to register the providers
+ */
 @Component
 public class ProvidersFactory {
 

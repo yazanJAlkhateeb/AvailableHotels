@@ -1,6 +1,5 @@
 package com.futtaim.beam.hotels.controller.dto;
 
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -11,9 +11,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * This controller developed to handle
+ * requests
+ * and call the main usecase "availableHotelsUseCase" in order to process
+ * the request
+ */
 @RestController
 @RequestMapping("/AvailableHotels")
 public class AvailableHotelsController {
+
 
     private static final Logger logger = LoggerFactory.getLogger(AvailableHotelsController.class);
     private final UseCase<AvailableHotelRequest, AvailableHotelResponse> availableHotelsUseCase;

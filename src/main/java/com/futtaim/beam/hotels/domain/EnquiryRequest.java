@@ -1,4 +1,4 @@
-package com.futtaim.beam.hotels.usecase.domain;
+package com.futtaim.beam.hotels.domain;
 
 import lombok.Getter;
 import lombok.Setter;

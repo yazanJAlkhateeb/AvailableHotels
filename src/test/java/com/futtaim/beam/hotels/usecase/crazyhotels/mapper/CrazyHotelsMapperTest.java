@@ -1,7 +1,7 @@
 package com.futtaim.beam.hotels.usecase.crazyhotels.mapper;
 
 import com.futtaim.beam.hotels.service.exception.ServiceTechnicalException;
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
+import com.futtaim.beam.hotels.controller.dto.Hotel;
 import com.futtaim.beam.hotels.service.crazyhotels.dto.CrazyHotelsHotel;
 import org.junit.jupiter.api.Test;
 

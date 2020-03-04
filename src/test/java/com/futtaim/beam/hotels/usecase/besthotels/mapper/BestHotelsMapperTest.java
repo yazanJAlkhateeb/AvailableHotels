@@ -2,7 +2,7 @@ package com.futtaim.beam.hotels.usecase.besthotels.mapper;
 
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelsHotel;
 import com.futtaim.beam.hotels.service.exception.ServiceTechnicalException;
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
+import com.futtaim.beam.hotels.controller.dto.Hotel;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

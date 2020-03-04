@@ -1,17 +1,21 @@
 package com.futtaim.beam.hotels.usecase.besthotels;
 
+import com.futtaim.beam.hotels.controller.dto.Hotel;
+import com.futtaim.beam.hotels.domain.EnquiryRequest;
 import com.futtaim.beam.hotels.service.Service;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelRequest;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelResponse;
 import com.futtaim.beam.hotels.usecase.UseCase;
 import com.futtaim.beam.hotels.usecase.besthotels.mapper.BestHotelsMapper;
-import com.futtaim.beam.hotels.usecase.domain.EnquiryRequest;
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This Usecase to handle the request and response of Best hotels service
+ * and mapping them
+ */
 @Component
 public class BestHotelsUseCase implements UseCase<EnquiryRequest, List<Hotel>> {
     private final Service<BestHotelRequest, BestHotelResponse> service;

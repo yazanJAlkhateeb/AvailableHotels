@@ -1,10 +1,10 @@
 package com.futtaim.beam.hotels.usecase.besthotels.mapper;
 
+import com.futtaim.beam.hotels.controller.dto.Hotel;
+import com.futtaim.beam.hotels.domain.EnquiryRequest;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelRequest;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelsHotel;
 import com.futtaim.beam.hotels.service.exception.ServiceTechnicalException;
-import com.futtaim.beam.hotels.usecase.domain.EnquiryRequest;
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
 
 import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;

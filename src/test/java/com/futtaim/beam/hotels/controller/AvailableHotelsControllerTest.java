@@ -1,7 +1,7 @@
 package com.futtaim.beam.hotels.controller;
 
 import com.futtaim.beam.hotels.controller.dto.AvailableHotelResponse;
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
+import com.futtaim.beam.hotels.controller.dto.Hotel;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 

@@ -13,6 +13,11 @@ import org.springframework.web.client.RestTemplate;
 
 import static java.util.Objects.isNull;
 
+/**
+ * here the service of BestHotels used restTemplate to handle communication
+ * to send request and retrieve response
+ * after that validating the response and deliver it to the usecase
+ */
 @Component
 public class BestHotelsService implements Service<BestHotelRequest, BestHotelResponse> {
     public static final String SERVICE_URL_IS_UNREACHABLE = "Service Service URL is unreachable";

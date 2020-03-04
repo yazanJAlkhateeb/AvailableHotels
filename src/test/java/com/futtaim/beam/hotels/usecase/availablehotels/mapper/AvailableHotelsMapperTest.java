@@ -1,7 +1,7 @@
 package com.futtaim.beam.hotels.usecase.availablehotels.mapper;
 
 import com.futtaim.beam.hotels.controller.dto.AvailableHotelRequest;
-import com.futtaim.beam.hotels.usecase.domain.EnquiryRequest;
+import com.futtaim.beam.hotels.domain.EnquiryRequest;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

@@ -1,9 +1,9 @@
 package com.futtaim.beam.hotels.usecase.besthotels;
 
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
+import com.futtaim.beam.hotels.controller.dto.Hotel;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelResponse;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelsHotel;
-import com.futtaim.beam.hotels.usecase.domain.EnquiryRequest;
+import com.futtaim.beam.hotels.domain.EnquiryRequest;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

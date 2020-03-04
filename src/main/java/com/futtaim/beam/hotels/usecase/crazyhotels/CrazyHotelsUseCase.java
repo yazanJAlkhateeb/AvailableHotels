@@ -1,17 +1,21 @@
 package com.futtaim.beam.hotels.usecase.crazyhotels;
 
+import com.futtaim.beam.hotels.controller.dto.Hotel;
+import com.futtaim.beam.hotels.domain.EnquiryRequest;
 import com.futtaim.beam.hotels.service.Service;
 import com.futtaim.beam.hotels.service.crazyhotels.dto.CrazyHotelsRequest;
 import com.futtaim.beam.hotels.service.crazyhotels.dto.CrazyHotelsResponse;
 import com.futtaim.beam.hotels.usecase.UseCase;
 import com.futtaim.beam.hotels.usecase.crazyhotels.mapper.CrazyHotelsMapper;
-import com.futtaim.beam.hotels.usecase.domain.EnquiryRequest;
-import com.futtaim.beam.hotels.usecase.domain.Hotel;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This Usecase to handle the request and response of Best hotels service
+ * and mapping them
+ */
 @Component
 public class CrazyHotelsUseCase implements UseCase<EnquiryRequest, List<Hotel>> {
     private final Service<CrazyHotelsRequest, CrazyHotelsResponse> service;
