@@ -9,33 +9,28 @@ import com.futtaim.beam.hotels.usecase.domain.EnquiryRequest;
 import com.futtaim.beam.hotels.usecase.domain.Hotel;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class AvailableHotelsUseCase implements UseCase<AvailableHotelRequest, AvailableHotelResponse> {
-    private ProvidersEventBus eventBus;
-    private AvailableHotelsMapper mapper;
+    private final AvailableHotelsMapper mapper;
+    private final ProvidersEventBus eventBus;
 
     public AvailableHotelsUseCase(ProvidersEventBus eventBus) {
-        mapper = new AvailableHotelsMapper();
         this.eventBus = eventBus;
+        mapper = new AvailableHotelsMapper();
     }
 
     @Override
     public AvailableHotelResponse execute(AvailableHotelRequest request) {
         EnquiryRequest enquiryRequest = mapper.map(request);
-        ArrayList<Hotel> hotels = new ArrayList<>();
-        eventBus.getProviders().forEach(p -> hotels.addAll(p.provide(enquiryRequest)));
-        return new AvailableHotelResponse(sortHotels(hotels));
-    }
-
-    private List<Hotel> sortHotels(ArrayList<Hotel> hotels) {
-        return hotels.stream()
-                .sorted(Comparator.comparing((Hotel::getHotelRate)))
+        List<Hotel> hotels = eventBus.getProviders().stream()
+                .map(p -> p.provide(enquiryRequest))
+                .flatMap(List::stream)
+                .sorted(Comparator.comparing(Hotel::getHotelRate))
                 .collect(Collectors.toList());
+        return new AvailableHotelResponse(hotels);
     }
-
 }
