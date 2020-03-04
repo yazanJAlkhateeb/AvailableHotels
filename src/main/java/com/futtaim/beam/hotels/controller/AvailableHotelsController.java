@@ -28,8 +28,6 @@ public class AvailableHotelsController {
         logger.info("Received request to get the available hotels");
         AvailableHotelResponse response = availableHotelsUseCase.execute(request);
         return ResponseEntity.ok(response);
-
-
     }
 
 }
