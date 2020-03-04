@@ -8,9 +8,9 @@ import java.util.List;
 
 @Component
 public class ProvidersEventBus {
-    private static List<Provider> subscribers = new ArrayList<>();
+    private List<Provider> subscribers = new ArrayList<>();
 
-    public static void register(Provider subscriber) {
+    public void register(Provider subscriber) {
         subscribers.add(subscriber);
     }
 

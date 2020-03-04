@@ -13,7 +13,6 @@ public class BestHotelsProvider implements Provider{
 
     public BestHotelsProvider(UseCase<EnquiryRequest, List<Hotel>> bestHotelsUseCase) {
         this.bestHotelsUseCase = bestHotelsUseCase;
-        ProvidersEventBus.register(this);
     }
 
     @Override
