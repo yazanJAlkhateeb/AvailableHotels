@@ -1,5 +1,6 @@
 package com.futtaim.beam.hotels.usecase.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import java.util.List;
 public class Hotel {
     private String provider;
     private String hotelName;
+    @JsonIgnore
     private long hotelRate;
     private BigDecimal fare;
     private List<String> amenities;

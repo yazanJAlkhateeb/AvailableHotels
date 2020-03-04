@@ -2,12 +2,14 @@ package com.futtaim.beam.hotels.usecase.besthotels.mapper;
 
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelRequest;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelsHotel;
-import com.futtaim.beam.hotels.service.exception.ServiceBusinessException;
+import com.futtaim.beam.hotels.service.exception.ServiceTechnicalException;
 import com.futtaim.beam.hotels.usecase.domain.EnquiryRequest;
 import com.futtaim.beam.hotels.usecase.domain.Hotel;
 
 import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;
+
+import static java.math.BigDecimal.ROUND_HALF_UP;
 
 public class BestHotelsMapper {
 
@@ -27,11 +29,14 @@ public class BestHotelsMapper {
             hotel.setAmenities(bestHotelsHotel.getAmenities());
             hotel.setHotelName(bestHotelsHotel.getHotelName());
             hotel.setHotelRate(Long.parseLong(bestHotelsHotel.getHotelRate()));
-            hotel.setFare(new BigDecimal(bestHotelsHotel.getFare()));
+            hotel.setFare(totalFare(bestHotelsHotel));
             return hotel;
         } catch (Exception e) {
-            throw new ServiceBusinessException(e.getMessage());
+            throw new ServiceTechnicalException("ERROR While Mapping Response ", e);
         }
     }
 
+    private BigDecimal totalFare(BestHotelsHotel bestHotelsHotel) {
+        return new BigDecimal(bestHotelsHotel.getFare()).setScale(2, ROUND_HALF_UP);
+    }
 }
