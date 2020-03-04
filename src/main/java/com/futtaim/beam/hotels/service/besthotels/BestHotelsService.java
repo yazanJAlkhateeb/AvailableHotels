@@ -4,8 +4,7 @@ import com.futtaim.beam.hotels.service.Service;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelRequest;
 import com.futtaim.beam.hotels.service.besthotels.dto.BestHotelResponse;
 import com.futtaim.beam.hotels.service.exception.ServiceTechnicalException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
@@ -18,10 +17,10 @@ import static java.util.Objects.isNull;
  * to send request and retrieve response
  * after that validating the response and deliver it to the usecase
  */
+@Slf4j
 @Component
 public class BestHotelsService implements Service<BestHotelRequest, BestHotelResponse> {
     public static final String SERVICE_URL_IS_UNREACHABLE = "Service Service URL is unreachable";
-    private static final Logger LOGGER = LoggerFactory.getLogger(BestHotelsService.class);
     private final RestTemplate restTemplate;
     private final String bestHotelsUrl;
 
@@ -33,13 +32,15 @@ public class BestHotelsService implements Service<BestHotelRequest, BestHotelRes
     @Override
     public BestHotelResponse serve(BestHotelRequest request) {
         try {
-            LOGGER.info("Calling BestHotels Service");
+            log.info("Calling BestHotels Service");
+            log.info("Produced Request {}",request.toString());
             BestHotelResponse response = response(request);
+            log.info("Received response {}",response);
             if (isNull(response))
                 throw new ServiceTechnicalException(SERVICE_URL_IS_UNREACHABLE);
             return response;
         } catch (RestClientException e) {
-            LOGGER.error("Exception while calling BestHotelsService ", e);
+            log.error("Exception while calling BestHotelsService ", e);
             throw new ServiceTechnicalException(SERVICE_URL_IS_UNREACHABLE, e);
         }
     }
