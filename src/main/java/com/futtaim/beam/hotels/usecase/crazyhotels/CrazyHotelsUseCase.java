@@ -29,6 +29,8 @@ public class CrazyHotelsUseCase implements UseCase<EnquiryRequest, List<Hotel>> 
     @Override
     public List<Hotel> execute(EnquiryRequest request) {
         CrazyHotelsResponse response = service.serve(mapper.mapToCrazyHotelRequest(request));
-        return response.getHotels().stream().map(h -> mapper.mapToHotel(h)).collect(Collectors.toList());
+        return response.getHotels().stream()
+                .map(h -> mapper.mapToHotel(h))
+                .collect(Collectors.toList());
     }
 }

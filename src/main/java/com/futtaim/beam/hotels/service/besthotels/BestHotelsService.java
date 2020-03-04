@@ -33,6 +33,7 @@ public class BestHotelsService implements Service<BestHotelRequest, BestHotelRes
     @Override
     public BestHotelResponse serve(BestHotelRequest request) {
         try {
+            LOGGER.info("Calling BestHotels Service");
             BestHotelResponse response = response(request);
             if (isNull(response))
                 throw new ServiceTechnicalException(SERVICE_URL_IS_UNREACHABLE);

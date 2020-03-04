@@ -34,6 +34,7 @@ public class CrazyHotelsService implements Service<CrazyHotelsRequest, CrazyHote
     @Override
     public CrazyHotelsResponse serve(CrazyHotelsRequest request) {
         try {
+            LOGGER.info("Calling CrazyHotels Service");
             CrazyHotelsResponse response = response(request);
             if (isNull(response))
                 throw new ServiceTechnicalException(SERVICE_URL_IS_UNREACHABLE);
